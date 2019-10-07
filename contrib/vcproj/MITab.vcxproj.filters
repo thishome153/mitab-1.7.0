@@ -285,9 +285,6 @@
     <ClInclude Include="cpl\cpl_vsi.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="mitab\mitab.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="mitab\mitab_capi.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -354,9 +351,12 @@
     <ClInclude Include="resource.h">
       <Filter>Resource</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\mitab\mitab.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="MitabResporce.rc">
+    <ResourceCompile Include="MitabResource.rc">
       <Filter>Resource</Filter>
     </ResourceCompile>
   </ItemGroup>

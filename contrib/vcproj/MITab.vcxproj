@@ -14,7 +14,7 @@
     <ProjectGuid>{1324399F-5B25-46F6-98E6-EC6A4C6DDDE0}</ProjectGuid>
     <RootNamespace>MITab</RootNamespace>
     <Keyword>MFCDLLProj</Keyword>
-    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -27,8 +27,11 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <PlatformToolset>v142</PlatformToolset>
-    <UseOfMfc>Dynamic</UseOfMfc>
+    <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
+    <VCToolsVersion>
+    </VCToolsVersion>
+    <UseDebugLibraries>true</UseDebugLibraries>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -45,7 +48,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>..\..\$(Configuration)\</OutDir>
-    <IntDir>$(OutDir)tmp\</IntDir>
+    <IntDir>$(OutDir)MITab.tmp\</IntDir>
     <LinkIncremental>true</LinkIncremental>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules />
@@ -204,6 +207,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\cpl\cpl_config.h" />
+    <ClInclude Include="..\..\mitab\mitab.h" />
     <ClInclude Include="cpl\cpl_conv.h" />
     <ClInclude Include="cpl\cpl_csv.h" />
     <ClInclude Include="cpl\cpl_error.h" />
@@ -212,7 +216,6 @@
     <ClInclude Include="cpl\cpl_string.h" />
     <ClInclude Include="cpl\cpl_vsi.h" />
     <!-- <ClInclude Include="resource.h" /> -->
-    <ClInclude Include="mitab\mitab.h" />
     <ClInclude Include="mitab\mitab_capi.h" />
     <ClInclude Include="mitab\mitab_geometry.h" />
     <ClInclude Include="mitab\mitab_ogr_driver.h" />
@@ -235,7 +238,7 @@
     <ClInclude Include="resource1.h" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="MitabResporce.rc" />
+    <ResourceCompile Include="MitabResource.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
