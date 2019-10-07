@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{1324399F-5B25-46F6-98E6-EC6A4C6DDDE0}</ProjectGuid>
+    <RootNamespace>MITab</RootNamespace>
+    <Keyword>MFCDLLProj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>16.0.29124.152</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>..\..\$(Configuration)\</OutDir>
+    <IntDir>$(OutDir)tmp\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules />
+    <CodeAnalysisRuleAssemblies />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules />
+    <CodeAnalysisRuleAssemblies />
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\cpl;$(SolutionDir)..\..\ogr;$(SolutionDir)..\..\mitab;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_USRDLL;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <OutputFile>$(OutDir)mitab.dll</OutputFile>
+      <ModuleDefinitionFile>$(SolutionDir)..\mitab.def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+    </Midl>
+    <ClCompile>
+      <AdditionalIncludeDirectories>.\cpl;.\ogr;.\mitab;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <OutputFile>.\Release\MITab.dll</OutputFile>
+      <ModuleDefinitionFile>.\MITab.def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\cpl\cplgetsymbol.cpp" />
+    <ClCompile Include="..\..\cpl\cplstring.cpp" />
+    <ClCompile Include="..\..\cpl\cpl_conv.cpp" />
+    <ClCompile Include="..\..\cpl\cpl_csv.cpp" />
+    <ClCompile Include="..\..\cpl\cpl_dir.cpp" />
+    <ClCompile Include="..\..\cpl\cpl_error.cpp" />
+    <ClCompile Include="..\..\cpl\cpl_findfile.cpp" />
+    <ClCompile Include="..\..\cpl\cpl_getexecpath.cpp" />
+    <ClCompile Include="..\..\cpl\cpl_minixml.cpp" />
+    <ClCompile Include="..\..\cpl\cpl_multiproc.cpp" />
+    <ClCompile Include="..\..\cpl\cpl_path.cpp" />
+    <ClCompile Include="..\..\cpl\cpl_string.cpp" />
+    <ClCompile Include="..\..\cpl\cpl_vsil.cpp" />
+    <ClCompile Include="..\..\cpl\cpl_vsil_unix_stdio_64.cpp" />
+    <ClCompile Include="..\..\cpl\cpl_vsil_win32.cpp" />
+    <ClCompile Include="..\..\cpl\cpl_vsisimple.cpp" />
+    <ClCompile Include="..\..\cpl\cpl_vsi_mem.cpp" />
+    <ClCompile Include="..\..\mitab\mitab_bounds.cpp" />
+    <ClCompile Include="..\..\mitab\mitab_capi.cpp" />
+    <ClCompile Include="..\..\mitab\mitab_coordsys.cpp" />
+    <ClCompile Include="..\..\mitab\mitab_datfile.cpp" />
+    <ClCompile Include="..\..\mitab\mitab_feature.cpp" />
+    <ClCompile Include="..\..\mitab\mitab_feature_mif.cpp" />
+    <ClCompile Include="..\..\mitab\mitab_geometry.cpp" />
+    <ClCompile Include="..\..\mitab\mitab_idfile.cpp" />
+    <ClCompile Include="..\..\mitab\mitab_imapinfofile.cpp" />
+    <ClCompile Include="..\..\mitab\mitab_indfile.cpp" />
+    <ClCompile Include="..\..\mitab\mitab_mapcoordblock.cpp" />
+    <ClCompile Include="..\..\mitab\mitab_mapfile.cpp" />
+    <ClCompile Include="..\..\mitab\mitab_mapheaderblock.cpp" />
+    <ClCompile Include="..\..\mitab\mitab_mapindexblock.cpp" />
+    <ClCompile Include="..\..\mitab\mitab_mapobjectblock.cpp" />
+    <ClCompile Include="..\..\mitab\mitab_maptoolblock.cpp" />
+    <ClCompile Include="..\..\mitab\mitab_middatafile.cpp" />
+    <ClCompile Include="..\..\mitab\mitab_miffile.cpp" />
+    <ClCompile Include="..\..\mitab\mitab_ogr_datasource.cpp" />
+    <ClCompile Include="..\..\mitab\mitab_ogr_driver.cpp" />
+    <ClCompile Include="..\..\mitab\mitab_rawbinblock.cpp" />
+    <ClCompile Include="..\..\mitab\mitab_spatialref.cpp" />
+    <ClCompile Include="..\..\mitab\mitab_tabfile.cpp" />
+    <ClCompile Include="..\..\mitab\mitab_tabseamless.cpp" />
+    <ClCompile Include="..\..\mitab\mitab_tabview.cpp" />
+    <ClCompile Include="..\..\mitab\mitab_tooldef.cpp" />
+    <ClCompile Include="..\..\mitab\mitab_utils.cpp" />
+    <ClCompile Include="..\..\ogr\gml2ogrgeometry.cpp" />
+    <ClCompile Include="..\..\ogr\ogr2gmlgeometry.cpp" />
+    <ClCompile Include="..\..\ogr\ogrct.cpp" />
+    <ClCompile Include="..\..\ogr\ogrcurve.cpp" />
+    <ClCompile Include="..\..\ogr\ogrdatasource.cpp" />
+    <ClCompile Include="..\..\ogr\ogrfeature.cpp" />
+    <ClCompile Include="..\..\ogr\ogrfeaturedefn.cpp" />
+    <ClCompile Include="..\..\ogr\ogrfeaturequery.cpp" />
+    <ClCompile Include="..\..\ogr\ogrfeaturestyle.cpp" />
+    <ClCompile Include="..\..\ogr\ogrfielddefn.cpp" />
+    <ClCompile Include="..\..\ogr\ogrgeometry.cpp" />
+    <ClCompile Include="..\..\ogr\ogrgeometrycollection.cpp" />
+    <ClCompile Include="..\..\ogr\ogrgeometryfactory.cpp" />
+    <ClCompile Include="..\..\ogr\ogrlayer.cpp" />
+    <ClCompile Include="..\..\ogr\ogrlinearring.cpp" />
+    <ClCompile Include="..\..\ogr\ogrlinestring.cpp" />
+    <ClCompile Include="..\..\ogr\ogrmultilinestring.cpp" />
+    <ClCompile Include="..\..\ogr\ogrmultipoint.cpp" />
+    <ClCompile Include="..\..\ogr\ogrmultipolygon.cpp" />
+    <ClCompile Include="..\..\ogr\ogrpoint.cpp" />
+    <ClCompile Include="..\..\ogr\ogrpolygon.cpp" />
+    <ClCompile Include="..\..\ogr\ogrsfdriver.cpp" />
+    <ClCompile Include="..\..\ogr\ogrsfdriverregistrar.cpp" />
+    <ClCompile Include="..\..\ogr\ogrspatialreference.cpp" />
+    <ClCompile Include="..\..\ogr\ogrsurface.cpp" />
+    <ClCompile Include="..\..\ogr\ogrutils.cpp" />
+    <ClCompile Include="..\..\ogr\ogr_api.cpp" />
+    <ClCompile Include="..\..\ogr\ogr_attrind.cpp" />
+    <ClCompile Include="..\..\ogr\ogr_fromepsg.cpp" />
+    <ClCompile Include="..\..\ogr\ogr_gensql.cpp" />
+    <ClCompile Include="..\..\ogr\ogr_miattrind.cpp" />
+    <ClCompile Include="..\..\ogr\ogr_srsnode.cpp" />
+    <ClCompile Include="..\..\ogr\ogr_srs_dict.cpp" />
+    <ClCompile Include="..\..\ogr\ogr_srs_esri.cpp" />
+    <ClCompile Include="..\..\ogr\ogr_srs_proj4.cpp" />
+    <ClCompile Include="..\..\ogr\ogr_srs_xml.cpp" />
+    <ClCompile Include="..\..\ogr\swq.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\mitab.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\cpl\cpl_config.h" />
+    <ClInclude Include="cpl\cpl_conv.h" />
+    <ClInclude Include="cpl\cpl_csv.h" />
+    <ClInclude Include="cpl\cpl_error.h" />
+    <ClInclude Include="cpl\cpl_minixml.h" />
+    <ClInclude Include="cpl\cpl_port.h" />
+    <ClInclude Include="cpl\cpl_string.h" />
+    <ClInclude Include="cpl\cpl_vsi.h" />
+    <!-- <ClInclude Include="resource.h" /> -->
+    <ClInclude Include="mitab\mitab.h" />
+    <ClInclude Include="mitab\mitab_capi.h" />
+    <ClInclude Include="mitab\mitab_geometry.h" />
+    <ClInclude Include="mitab\mitab_ogr_driver.h" />
+    <ClInclude Include="mitab\mitab_priv.h" />
+    <ClInclude Include="mitab\mitab_utils.h" />
+    <ClInclude Include="ogr\ogrsf_frmts.h" />
+    <ClInclude Include="ogr\ogr_api.h" />
+    <ClInclude Include="ogr\ogr_attrind.h" />
+    <ClInclude Include="ogr\ogr_core.h" />
+    <ClInclude Include="ogr\ogr_feature.h" />
+    <ClInclude Include="ogr\ogr_featurestyle.h" />
+    <ClInclude Include="ogr\ogr_gensql.h" />
+    <ClInclude Include="ogr\ogr_geometry.h" />
+    <ClInclude Include="ogr\ogr_geos.h" />
+    <ClInclude Include="ogr\ogr_p.h" />
+    <ClInclude Include="ogr\ogr_spatialref.h" />
+    <ClInclude Include="ogr\ogr_srs_api.h" />
+    <ClInclude Include="ogr\swq.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="resource1.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="MitabResporce.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
