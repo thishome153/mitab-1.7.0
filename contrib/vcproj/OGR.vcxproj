@@ -27,10 +27,10 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
     <UseOfMfc>false</UseOfMfc>
     <VCToolsVersion>
     </VCToolsVersion>
@@ -40,13 +40,13 @@
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
@@ -76,13 +76,15 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>..\..\$(Configuration)\</OutDir>
-    <IntDir>$(OutDir)OGR.tmp\</IntDir>
+    <IntDir>$(OutDir)OGR.tmp\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <OutDir>..\..\$(Configuration)\</OutDir>
+    <IntDir>$(OutDir)OGR.tmp\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -95,7 +97,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>
       </SDLCheck>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_USRDLL;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_LIB;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>false</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>$(SolutionDir)..\..\ogr;$(SolutionDir)..\..\cpl</AdditionalIncludeDirectories>
@@ -112,7 +114,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_LIB;WIN32;_WINDOWS;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
@@ -123,15 +125,18 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>
+      </SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\ogr;$(SolutionDir)..\..\cpl</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -168,6 +173,18 @@
     <ClInclude Include="..\..\cpl\cpl_port.h" />
     <ClInclude Include="..\..\cpl\cpl_string.h" />
     <ClInclude Include="..\..\cpl\cpl_vsi.h" />
+    <ClInclude Include="..\..\ogr\ogrsf_frmts.h" />
+    <ClInclude Include="..\..\ogr\ogr_api.h" />
+    <ClInclude Include="..\..\ogr\ogr_attrind.h" />
+    <ClInclude Include="..\..\ogr\ogr_core.h" />
+    <ClInclude Include="..\..\ogr\ogr_feature.h" />
+    <ClInclude Include="..\..\ogr\ogr_featurestyle.h" />
+    <ClInclude Include="..\..\ogr\ogr_gensql.h" />
+    <ClInclude Include="..\..\ogr\ogr_geometry.h" />
+    <ClInclude Include="..\..\ogr\ogr_geos.h" />
+    <ClInclude Include="..\..\ogr\ogr_p.h" />
+    <ClInclude Include="..\..\ogr\ogr_spatialref.h" />
+    <ClInclude Include="..\..\ogr\ogr_srs_api.h" />
     <ClInclude Include="..\..\ogr\swq.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="pch.h" />
@@ -191,6 +208,41 @@
     <ClCompile Include="..\..\cpl\cpl_vsisimple.cpp" />
     <ClCompile Include="..\..\cpl\cpl_vsi_mem.cpp" />
     <ClCompile Include="..\..\ogr\gml2ogrgeometry.cpp" />
+    <ClCompile Include="..\..\ogr\ogr2gmlgeometry.cpp" />
+    <ClCompile Include="..\..\ogr\ogrct.cpp" />
+    <ClCompile Include="..\..\ogr\ogrcurve.cpp" />
+    <ClCompile Include="..\..\ogr\ogrdatasource.cpp" />
+    <ClCompile Include="..\..\ogr\ogrfeature.cpp" />
+    <ClCompile Include="..\..\ogr\ogrfeaturedefn.cpp" />
+    <ClCompile Include="..\..\ogr\ogrfeaturequery.cpp" />
+    <ClCompile Include="..\..\ogr\ogrfeaturestyle.cpp" />
+    <ClCompile Include="..\..\ogr\ogrfielddefn.cpp" />
+    <ClCompile Include="..\..\ogr\ogrgeometry.cpp" />
+    <ClCompile Include="..\..\ogr\ogrgeometrycollection.cpp" />
+    <ClCompile Include="..\..\ogr\ogrgeometryfactory.cpp" />
+    <ClCompile Include="..\..\ogr\ogrlayer.cpp" />
+    <ClCompile Include="..\..\ogr\ogrlinearring.cpp" />
+    <ClCompile Include="..\..\ogr\ogrlinestring.cpp" />
+    <ClCompile Include="..\..\ogr\ogrmultilinestring.cpp" />
+    <ClCompile Include="..\..\ogr\ogrmultipoint.cpp" />
+    <ClCompile Include="..\..\ogr\ogrmultipolygon.cpp" />
+    <ClCompile Include="..\..\ogr\ogrpoint.cpp" />
+    <ClCompile Include="..\..\ogr\ogrpolygon.cpp" />
+    <ClCompile Include="..\..\ogr\ogrsfdriver.cpp" />
+    <ClCompile Include="..\..\ogr\ogrsfdriverregistrar.cpp" />
+    <ClCompile Include="..\..\ogr\ogrspatialreference.cpp" />
+    <ClCompile Include="..\..\ogr\ogrsurface.cpp" />
+    <ClCompile Include="..\..\ogr\ogrutils.cpp" />
+    <ClCompile Include="..\..\ogr\ogr_api.cpp" />
+    <ClCompile Include="..\..\ogr\ogr_attrind.cpp" />
+    <ClCompile Include="..\..\ogr\ogr_fromepsg.cpp" />
+    <ClCompile Include="..\..\ogr\ogr_gensql.cpp" />
+    <ClCompile Include="..\..\ogr\ogr_miattrind.cpp" />
+    <ClCompile Include="..\..\ogr\ogr_srsnode.cpp" />
+    <ClCompile Include="..\..\ogr\ogr_srs_dict.cpp" />
+    <ClCompile Include="..\..\ogr\ogr_srs_esri.cpp" />
+    <ClCompile Include="..\..\ogr\ogr_srs_proj4.cpp" />
+    <ClCompile Include="..\..\ogr\ogr_srs_xml.cpp" />
     <ClCompile Include="..\..\ogr\swq.c" />
     <ClCompile Include="OGR.cpp" />
     <ClCompile Include="pch.cpp">
