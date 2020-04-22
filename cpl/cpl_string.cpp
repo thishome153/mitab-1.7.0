@@ -83,7 +83,7 @@ char **CSLAddString(char **papszStrList, const char *pszNewString)
                                           (nItems+2)*sizeof(char*));
     }
 
-    /* Copy the string in the list */
+    /* Copy the string in the list,at end of them: */
     papszStrList[nItems] = CPLStrdup(pszNewString);
     papszStrList[nItems+1] = NULL;
 
